@@ -1,4 +1,4 @@
-import requests,random,json,os,sys
+import requests,random,secrets,json,os,sys
 import flask
 import telebot
 from telebot import types
@@ -28,6 +28,7 @@ def Sufi(message):
       'HOST': "www.instagram.com",
       'KeepAlive' : 'True',
       'user-agent': str(generate_user_agent()),
+      'Cookie': cookie,
       'ContentType' : "application/x-www-form-urlencoded",
       "X-Requested-With" : "XMLHttpRequest",
       "X-IG-App-ID": "936619743392459",
