@@ -1,7 +1,6 @@
 import requests,random,json,os,sys
 import flask
 import telebot
-import secrets
 from telebot import types
 from user_agent import generate_user_agent
 from config import *
@@ -12,8 +11,6 @@ bot = telebot.TeleBot(BOT_TOKEN)
 server = Flask(__name__)
 logger = telebot.logger
 logger.setLevel(logging.DEBUG)
-
-cookie = secrets.token_hex(8)*2
 
 @bot.message_handler(commands=['start'])
 def send(message):
@@ -31,7 +28,6 @@ def Sufi(message):
       'HOST': "www.instagram.com",
       'KeepAlive' : 'True',
       'user-agent': str(generate_user_agent()),
-      'Cookie': cookie,
       'ContentType' : "application/x-www-form-urlencoded",
       "X-Requested-With" : "XMLHttpRequest",
       "X-IG-App-ID": "936619743392459",
